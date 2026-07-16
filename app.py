@@ -12,8 +12,11 @@ file_data = os.path.exists(db_path)
 if file_data:
   # DB연결
   conn = sqlite3.connect(db_path)
+  
   # query 작성
-  query = "select * from virtual_loan_data where credit_rating = '1등급'"
+  #query = "select * from virtual_loan_data where credit_rating = '1등급'"
+  query = "select borrower_name, loan_type, credit_rating from virtual_loan_data"
+  
   # 쿼리문을 이용해서 데이터 불러오기
   df_a_grade = pd.read_sql(query, conn)
 
